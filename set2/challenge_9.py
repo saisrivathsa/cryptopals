@@ -1,5 +1,6 @@
 def pad(string,length):
-    return string+"\x04"*(length-(len(string)%length))
+    l = length-(len(string)%length)
+    return string+chr(l)*(l)
 
 if __name__ == "__main__":
     string = "YELLOW SUBMARINE"

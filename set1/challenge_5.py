@@ -1,3 +1,5 @@
+# The key 'ICE' is repeated to match the length of the string and later they are xored taking eacg character at a time
+
 def xor(string,key):
     length = divmod(len(string),len(key))
     key = key*length[0]+key[0:length[1]]

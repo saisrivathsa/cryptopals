@@ -1,3 +1,7 @@
+'''
+The encrypted text is xored with all possible single byte keys and the resultant text is scored. The key which gave the
+highest score is the possible key
+'''
 def Score(string):
   freq = dict()
   freq['a'] =  14810

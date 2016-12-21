@@ -1,4 +1,6 @@
-from challenge_3 import *
+# ALL THE LINES ARE DECRYPTED JUST LIKE PREVIOUS CHALLENGE AND THE LINE WITH HIGHEST SCORE IS POSSIBLY THE CORRECT STRING 
+
+from challenge_3 import Score
 
 if __name__ == "__main__":
     file =  open('4.txt')

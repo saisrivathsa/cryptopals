@@ -1,4 +1,4 @@
-from Crypto.Cipher import AES
+# Checking for blocks with same encrypted blocks
 def check(string):
     l =  len(string)/16
     for i in range (l) :

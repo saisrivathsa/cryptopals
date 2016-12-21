@@ -10,7 +10,7 @@ if __name__ == "__main__":
     l =  len(string)
     key = ''
     for i in range( keylen ):
-        key += redirect(string[i::keylen]) #sending i th element of every keylength sized block
+        key += redirect(string[i::keylen]) #sending i th element of every keylength sized block and finding the character of key for that position
     print "\nKey:"+key
     print "---------------------------------------------------------------------------------"
     print "DATA : \n"+xor(string,key)

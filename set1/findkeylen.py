@@ -1,18 +1,19 @@
 from ham_distance import hamdistance
 
-def findingkeylen():
-    file = open('6.txt')
-    s = (''.join([line.strip() for line in file])).decode('base64')
+def normalize(s, length): #length is key length in question and data is the whole string in ascii
+	norm_dist = 0
+	for i in range (len(s)-(2*length)+1):
+		norm_dist += hamdistance(s[i:i+length], s[i+length:i+2*length])
+	norm_dist = (1.0*norm_dist)/((len(s)-(2*length)+1)*length)
+	return norm_dist
+
+
+def findingkeylen(string):
     finalkeylen = 0
-    score = 0
-    for i in range(2,len(s)):
-        scoretmp = 0
-        j = 0
-        while (j <= len(s)%i):
-            scoretmp += hamdistance(s[j*i:i*(j+1)],s[i*(j+1):i*(j+2)])
-            j = j+2
-        scoretmp = scoretmp/i
-        if scoretmp >= score:
-            score = scoretmp
+    best_norm_dist = float('inf')
+    for i in range (2, 100):
+        tempdist = normalize(string, i)
+        if tempdist <= best_norm_dist :
+            best_norm_dist = tempdist
             finalkeylen = i
     return finalkeylen

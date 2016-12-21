@@ -7,11 +7,9 @@ def random_key_generator(l=16):
     return key
 
 def detection_oracle(data):
-    c = 3
+    c = 0
     if detect_ECB(pad(data)) :
         c = 1
-    else :
-        c = 0
     return c
 
 def detect_ECB(data):
@@ -50,13 +48,14 @@ def redirect():
     check = detection_oracle(encrypted_data)
 
     if c == check :
-        print "Detection oracle succeeded",
+        print "-->Detection oracle succeeded",
         if c == 0:
-            print "CBC detected"
+            print "CBC detected\n"
         else :
-            print "ECB detected"
+            print "ECB detected\n"
     else :
         print "Detection oracle failed"
 
 if __name__ == "__main__":
-    redirect()
+    for i in range(randint(1,10)):
+        redirect()

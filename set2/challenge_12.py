@@ -63,12 +63,14 @@ def main():
     else :
         print "------------------------------\nUNABLE TO DETECT ECB IN ORACLE FUNCTION\n------------------------------\n"
     known = ''
+    print "DATA:\n--------------------------------------------------------------------------------------------------\n"
     for i in range(0,len(oracle(''))):
         try:
-            known += next_chr(block_size,known)
+            known += next_chr(block_size, known)
         except :
             break
     print unpad(known)
+    print "\n--------------------------------------------------------------------------------------------------\n"
 
 if __name__ == "__main__" :
     main()

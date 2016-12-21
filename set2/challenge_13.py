@@ -20,7 +20,7 @@ def unpad (data):
         return data[ : -l ]
     else :
         return "The data %s passed is not properly padded"%repr(data)
-        
+
 key = random_key_generator()
 
 def ECB_encrypt(data, key=key):
@@ -39,9 +39,11 @@ def parse(data):
 
 def profile_for(data,role='user'):
     if '=' in data:
-        print "Illegal arguements passed "
+        print "-->Illegal arguements passed are removed. \nFinal data: ",
     elif '&' in data :
-        print "Illegal arguements passed "
+        print "-->Illegal arguements passed are removed. \nFinal data: ",
+    else :
+        print "-->Valid arguements passed.\nFinal data: ",
 
     data = data.replace('=','').replace('&','')
     return "email=" + data + "&uid=10&role=" + role
@@ -49,10 +51,10 @@ def profile_for(data,role='user'):
 
 if __name__ == "__main__" :
     #NORMAL
-    print ECB_decrypt(ECB_encrypt(profile_for('srivathsaeric@gmail.com')))
+    print ECB_decrypt(ECB_encrypt(profile_for('srivathsaeric@gmail.com'))) + '\n'
 
     #HACK ATTEMPT
-    print ECB_decrypt(ECB_encrypt(profile_for('srivathsaeric@gmail.com=')))
+    print ECB_decrypt(ECB_encrypt(profile_for('srivathsaeric@gmail.com='))) + '\n'
 
     #ADMIN
-    print ECB_decrypt(ECB_encrypt(profile_for('srivathsaeric@gmail.com','admin')))
+    print ECB_decrypt(ECB_encrypt(profile_for('srivathsaeric@gmail.com','admin'))) + '\n'
